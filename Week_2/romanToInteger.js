@@ -47,3 +47,63 @@ for (let i = 0; i < inputs.length; i++) {
 }
 console.log(`Passing tests: ${validations.passing}`);
 console.log(`Failing tests: ${validations.failing}`);
+
+// O(n)
+var romanToInt = function(s) {
+  let table = {
+      I: 1,
+      V: 5,
+      X: 10,
+      L: 50,
+      C: 100,
+      D: 500,
+      M: 1000
+  }
+  
+  let result = 0;
+  for (let i = 0; i < s.length; i++) {
+      //if the next roman numeral is larger > subtract this number
+      if (table[s[i]] < table[s[i+1]]) {
+          result-=table[s[i]]
+      } 
+      //otherwise, add like normal. 
+      else {
+          result+=table[s[i]]
+      }
+  }
+  return result
+  
+};
+
+
+var romanToInt = function (s) {
+  const numerals = {
+      I: 1,
+      V: 5,
+      X: 10,
+      L: 50,
+      C: 100,
+      D: 500,
+      M: 1000,
+  };
+
+  // const strLen = string.length;
+  let total = 0;
+
+  // Loop through the letters
+  for (let i = 0; i < s.length; i++) {
+      // Check if the current letter is followed by one with a higher value (indicating a deduction)
+      if (i < s.length - 1 && numerals[s[i + 1]] > numerals[s[i]]) {
+          // Remove the current letter's numeric value from the total
+          total -= numerals[s[i]];
+      } else {
+          // Add the current letter's numeric value to the total
+          total += numerals[s[i]];
+      }
+  }
+
+  return total;
+};
+
+
+// O(1)

@@ -6,7 +6,7 @@
   multiple coins of the same value).
 
  * For example, if you're given coins = [1, 2, 5], the minimum amount of change that you can't create is 4. 
- * If you're given no coins, the minimum amount of change that you can't create is 1
+ * If you're given no coins, the minimum amount of change that you *can't* create is 1
  * 
  * Example
  * Input:
